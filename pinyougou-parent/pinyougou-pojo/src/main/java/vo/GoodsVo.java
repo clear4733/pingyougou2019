@@ -3,6 +3,7 @@ package vo;
 import cn.itcast.core.pojo.good.Goods;
 import cn.itcast.core.pojo.good.GoodsDesc;
 import cn.itcast.core.pojo.item.Item;
+import cn.itcast.core.pojo.seckill.SeckillGoods;
 
 import java.io.Serializable;
 import java.util.List;
@@ -20,6 +21,17 @@ public class GoodsVo implements Serializable{
 
     //库存集合对象
     private List<Item> itemList;
+
+    //秒杀商品
+    private SeckillGoods seckillGoods;
+
+    public SeckillGoods getSeckillGoods() {
+        return seckillGoods;
+    }
+
+    public void setSeckillGoods(SeckillGoods seckillGoods) {
+        this.seckillGoods = seckillGoods;
+    }
 
     public Goods getGoods() {
         return goods;

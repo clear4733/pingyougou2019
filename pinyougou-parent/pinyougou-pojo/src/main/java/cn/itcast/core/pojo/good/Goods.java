@@ -98,7 +98,8 @@ public class Goods implements Serializable {
         return sellerId;
     }
 
-    public void setSellerId(String sellerId) {
+    public void
+    setSellerId(String sellerId) {
         this.sellerId = sellerId == null ? null : sellerId.trim();
     }
 
