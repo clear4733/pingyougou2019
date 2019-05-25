@@ -26,19 +26,18 @@
 
 	<script type="text/javascript" src="../js/base.js"></script>
 
-	<script type="text/javascript" src="../js/service/goodsService.js"></script>
+	<script type="text/javascript" src="../js/service/seckillgoodsService.js"></script>
 	<script type="text/javascript" src="../js/service/itemCatService.js"></script>
 	<script type="text/javascript" src="../js/service/uploadService.js"></script>
 	<script type="text/javascript" src="../js/service/typeTemplateService.js"></script>
 
 	<script type="text/javascript" src="../js/controller/baseController.js"></script>
-	<script type="text/javascript" src="../js/controller/goodsController.js"></script>
-
+	<script type="text/javascript" src="../js/controller/seckillgoodsController.js"></script>
 
 
 </head>
 
-<body class="hold-transition skin-red sidebar-mini" ng-app="pinyougou" ng-controller="goodsController" ng-init="selectItemCat1List();findOne()">
+<body class="hold-transition skin-red sidebar-mini" ng-app="pinyougou" ng-controller="seckillgoodsController" ng-init="selectItemCat1List();findOne()">
 
 <!-- 正文区域 -->
 <section class="content">
@@ -59,9 +58,9 @@
 				<li >
 					<a href="#customAttribute" data-toggle="tab">扩展属性</a>
 				</li>
-				<li >
-					<a href="#spec" data-toggle="tab" >规格</a>
-				</li>
+				<!--<li >-->
+					<!--<a href="#spec" data-toggle="tab" >规格</a>-->
+				<!--</li>-->
 			</ul>
 			<!--tab头/-->
 
@@ -110,7 +109,6 @@
 							<input type="text" ng-model="entity.goods.caption"  class="form-control"   placeholder="副标题" value="">
 						</div>
 
-						<!--原价格-->
 						<div class="col-md-2 title">原价格</div>
 						<div class="col-md-10 data">
 							<div class="input-group">
@@ -118,21 +116,20 @@
 								<input type="text"ng-model="entity.goods.price"   class="form-control"  placeholder="价格" value="">
 							</div>
 						</div>
-						<!--秒杀价-->
-						<div class="col-md-2 title">秒杀价</div>
+
+						<div class="col-md-2 title">秒杀价格</div>
 						<div class="col-md-10 data">
 							<div class="input-group">
 								<span class="input-group-addon">¥</span>
-								<input type="text"ng-model="entity.seckillGoods.costPrice"   class="form-control"  placeholder="价格" value="">
+								<input type="text"ng-model="entity.seckillGoods.costPrice"   class="form-control"  placeholder="秒杀价" value="">
 							</div>
 						</div>
 
-						<!--活动商品数量-->
 						<div class="col-md-2 title">库存</div>
 						<div class="col-md-10 data">
 							<div class="input-group">
 								<span class="input-group-addon">件</span>
-								<input type="text"ng-model="entity.seckillGoods.stockCount"   class="form-control"  placeholder="参与活动数量" value="">
+								<input type="text"ng-model="entity.seckillGoods.stockCount"   class="form-control"  placeholder="秒杀价" value="">
 							</div>
 						</div>
 
@@ -218,9 +215,9 @@
 							<div ng-repeat="pojo in specList">
 								<div class="col-md-2 title">{{pojo.text}}</div>
 								<div class="col-md-10 data">
-					                               
+
 					                            <span ng-repeat="option in pojo.options">
-					                            	<input ng-checked="checkAttributeValue(pojo.text,option.optionName)" ng-click="updateSpecAttribute($event,pojo.text,option.optionName);createItemList()" type="checkbox" >{{option.optionName}}					                            				                            	
+					                            	<input ng-checked="checkAttributeValue(pojo.text,option.optionName)" ng-click="updateSpecAttribute($event,pojo.text,option.optionName);createItemList()" type="checkbox" >{{option.optionName}}
 					                            </span>
 
 								</div>
@@ -233,6 +230,7 @@
 								<tr>
 									<th class="sorting" ng-repeat="pojo in entity.goodsDesc.specificationItems">{{pojo.attributeName}}</th>
 									<th class="sorting">价格</th>
+									<th class="sorting">秒杀价</th>
 									<th class="sorting">库存</th>
 									<th class="sorting">是否启用</th>
 									<th class="sorting">是否默认</th>
@@ -245,6 +243,9 @@
 									</td>
 									<td>
 										<input class="form-control" ng-model="pojo.price" placeholder="价格">
+									</td>
+									<td>
+										<input class="form-control" ng-model="entity.goods.caption" placeholder="秒杀价">
 									</td>
 									<td>
 										<input class="form-control" ng-model="pojo.num"  placeholder="库存数量">

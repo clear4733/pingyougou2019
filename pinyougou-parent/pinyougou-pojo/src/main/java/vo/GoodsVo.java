@@ -22,7 +22,7 @@ public class GoodsVo implements Serializable{
     //库存集合对象
     private List<Item> itemList;
 
-    //秒杀商品
+    //秒杀商品对象
     private SeckillGoods seckillGoods;
 
     public SeckillGoods getSeckillGoods() {
