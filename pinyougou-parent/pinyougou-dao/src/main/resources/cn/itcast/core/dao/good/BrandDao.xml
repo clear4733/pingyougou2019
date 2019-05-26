@@ -195,4 +195,6 @@
     select id , name text from tb_brand
 
   </select>
+
+
 </mapper>

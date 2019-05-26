@@ -1,5 +1,6 @@
 package cn.itcast.core.controller;
 
+import cn.itcast.core.service.SeckillGoodsService;
 import cn.itcast.core.service.SeckillService;
 import com.alibaba.dubbo.config.annotation.Reference;
 import entity.Result;
@@ -16,12 +17,12 @@ import vo.GoodsVo;
 public class SeckillController {
 
     @Reference
-    private SeckillService seckillService;
+    private SeckillGoodsService seckillGoodsService;
 
     @RequestMapping("/add")
     public Result add(@RequestBody GoodsVo vo){
         try {
-            seckillService.add(vo);
+            seckillGoodsService.add(vo);
             return new Result(true, "添加成功");
         } catch (Exception e) {
             e.printStackTrace();
